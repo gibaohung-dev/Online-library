@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .library-container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .book {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            transition: transform 0.3s ease-in-out;
+        }
+        .book:hover {
+            transform: scale(1.02);
+        }
+        .book img {
+            width: 60px;
+            height: 90px;
+            margin-right: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .book-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="library-container">
+        <h1>📚 Online Library</h1>
+        <input type="text" class="search-bar" placeholder="Search books..." onkeyup="searchBooks()">
+        <div id="book-list">
+            <div class="book"> <!-- BOOK 1-->
+                <img src="https://lh6.googleusercontent.com/dZl82QT1kuG4xTRuRb8VlrktnGUO7alAe18ryhdMgtar8YAYMIiJae_uZQzuvEB5Aa-ZuFInXEonKDzIyW_vcag4dNSq9-k9At8cW7vNPYqCSL5mrL_josaTM2vQupuW-A=w1280" alt="Book 1">
+                <span class="book-title">The Wind in the Willows – Kenneth Grahame</span>
+            </div>
+            <div class="book"> <!-- BOOK 2-->
+                <img src="https://images.thegreatestbooks.org/09c56l1pldwmh5f4lha1pckfsc7d" alt="Book 2">
+                <span class="book-title">Mrs. Dalloway - Virginia Woolf</span>
+            </div>
+            <div class="book"> <!-- BOOK 3-->
+                <img src="https://lh6.googleusercontent.com/xileq6SLriyDbkrdICgA5iCGHeYXBzJvW9tbBMaNiXp_QvZN5JtWsngH9VBGs41SkoAaAp4aY33qjMcH8Ffdie5NtJj_07jwaTrAD_JstqDqVxN6auA8FoBT59HfADtKWg=w1280" alt="Book 3">
+                <span class="book-title">Go Set a Watchman - Harper Lee</span>
+            </div>
+            <div class="book"> <!-- BOOK 4-->
+                <img src="https://images.thegreatestbooks.org/w02p4sc3t7ub8t4cxjrccai6ikba" alt="Book 2">
+                <span class="book-title">The Grapes of Wrath - John Steinbeck</span>
+            </div>
+            <div class="book"> <!-- BOOK 5-->
+                <img src="https://images.thegreatestbooks.org/hi2w62shitit1a1ez4y6vl7wz37u" alt="Book 2">
+                <span class="book-title">Adventures of Huckleberry Finn - Mark Twain</span>
+            </div>
+            <div class="book"> <!-- BOOK 6-->
+                <img src="https://images.thegreatestbooks.org/5fm923c30u5vdnmwmvwkykuhuzav" alt="Book 2">
+                <span class="book-title">The Little Prince - Antoine de Saint-Exupéry</span>
+            </div>
+            <!-- <div class="slider-buttons">
+            <button class="slider-button" onclick="moveSlider(-1)"><⬅️></button>
+            <button class="slider-button" onclick="moveSlider(1)">➡️</button> -->
+        </div>
+    </div>
+    <script>
+        function searchBooks() {
+            let input = document.querySelector('.search-bar').value.toLowerCase();
+            let books = document.querySelectorAll('.book');
+            books.forEach(book => {
+                let title = book.querySelector('.book-title').innerText.toLowerCase();
+                if (title.includes(input)) {
+                    book.style.display = "flex";
+                } else {
+                    book.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

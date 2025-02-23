@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Library</title>
+    <link rel="icon" type="image/png" href="book.png">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,6 +16,7 @@
             align-items: center;
             height: 100vh;
         }
+
         .library-container {
             max-width: 800px;
             width: 100%;
@@ -24,18 +26,32 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
+
         h1 {
             color: #333;
             font-size: 24px;
+            margin-bottom: 10px;
         }
+
         .search-bar {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
         }
+
+        /* Scrollable Book List */
+        #book-list {
+            max-height: 300px; /* Adjust this value based on your preference */
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background: #fff;
+        }
+
         .book {
             display: flex;
             align-items: center;
@@ -43,9 +59,11 @@
             border-bottom: 1px solid #ddd;
             transition: transform 0.3s ease-in-out;
         }
+
         .book:hover {
             transform: scale(1.02);
         }
+
         .book img {
             width: 60px;
             height: 90px;
@@ -53,6 +71,7 @@
             border-radius: 5px;
             box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
         }
+
         .book-title {
             font-size: 18px;
             font-weight: bold;
@@ -61,52 +80,65 @@
     </style>
 </head>
 <body>
+
     <div class="library-container">
         <h1>📚 Online Library</h1>
         <input type="text" class="search-bar" placeholder="Search books..." onkeyup="searchBooks()">
+
         <div id="book-list">
-            <div class="book"> <!-- BOOK 1-->
-                <img src="https://lh6.googleusercontent.com/dZl82QT1kuG4xTRuRb8VlrktnGUO7alAe18ryhdMgtar8YAYMIiJae_uZQzuvEB5Aa-ZuFInXEonKDzIyW_vcag4dNSq9-k9At8cW7vNPYqCSL5mrL_josaTM2vQupuW-A=w1280" alt="Book 1">
-                <span class="book-title">The Wind in the Willows – Kenneth Grahame</span>
+            <div class="book">
+                <img src="https://images.thegreatestbooks.org/vag7sqpm8d2ddblk77l7zhp45ilb" alt="Book 1">
+                <span class="book-title">Dracula - Bram Stoker</span>
             </div>
-            <div class="book"> <!-- BOOK 2-->
-                <img src="https://images.thegreatestbooks.org/09c56l1pldwmh5f4lha1pckfsc7d" alt="Book 2">
-                <span class="book-title">Mrs. Dalloway - Virginia Woolf</span>
+            <div class="book">
+                <img src="https://images.thegreatestbooks.org/y4w192fe1hek964fbfl9isnjrh8h" alt="Book 2">
+                <span class="book-title">Candide - Voltaire</span>
             </div>
-            <div class="book"> <!-- BOOK 3-->
-                <img src="https://lh6.googleusercontent.com/xileq6SLriyDbkrdICgA5iCGHeYXBzJvW9tbBMaNiXp_QvZN5JtWsngH9VBGs41SkoAaAp4aY33qjMcH8Ffdie5NtJj_07jwaTrAD_JstqDqVxN6auA8FoBT59HfADtKWg=w1280" alt="Book 3">
-                <span class="book-title">Go Set a Watchman - Harper Lee</span>
+            <div class="book">
+                <img src="https://images.thegreatestbooks.org/z7xn8o6i9vtu6fs45pb9a53ypvrv" alt="Book 3">
+                <span class="book-title">In Cold Blood - Truman Capote</span>
             </div>
-            <div class="book"> <!-- BOOK 4-->
-                <img src="https://images.thegreatestbooks.org/w02p4sc3t7ub8t4cxjrccai6ikba" alt="Book 2">
+            <div class="book">
+                <img src="https://images.thegreatestbooks.org/w02p4sc3t7ub8t4cxjrccai6ikba" alt="Book 4">
                 <span class="book-title">The Grapes of Wrath - John Steinbeck</span>
             </div>
-            <div class="book"> <!-- BOOK 5-->
-                <img src="https://images.thegreatestbooks.org/hi2w62shitit1a1ez4y6vl7wz37u" alt="Book 2">
+            <div class="book">
+                <img src="https://images.thegreatestbooks.org/hi2w62shitit1a1ez4y6vl7wz37u" alt="Book 5">
                 <span class="book-title">Adventures of Huckleberry Finn - Mark Twain</span>
             </div>
-            <div class="book"> <!-- BOOK 6-->
-                <img src="https://images.thegreatestbooks.org/5fm923c30u5vdnmwmvwkykuhuzav" alt="Book 2">
+            <div class="book">
+                <img src="https://images.thegreatestbooks.org/5fm923c30u5vdnmwmvwkykuhuzav" alt="Book 6">
                 <span class="book-title">The Little Prince - Antoine de Saint-Exupéry</span>
             </div>
-            <!-- <div class="slider-buttons">
-            <button class="slider-button" onclick="moveSlider(-1)"><⬅️></button>
-            <button class="slider-button" onclick="moveSlider(1)">➡️</button> -->
+            <div class="book">
+                <img src="https://images.thegreatestbooks.org/j51fxxe2wgs4q84lrtgzpe4xyk4u" alt="Book 7">
+                <span class="book-title">Leaves of Grass - Walt Whitman</span>
+            </div>
+            <div class="book">
+                <img src="https://images.thegreatestbooks.org/9mhooejwkufgr599usstzfob6xbm" alt="Book 8">
+                <span class="book-title">Robinson Crusoe - Daniel Defoe</span>
+            </div>
+            <div class="book">
+                <img src="https://images.thegreatestbooks.org/zqiw0pvb283wp5nt6vjy3m8uhbth" alt="Book 9">
+                <span class="book-title">Treasure Island - Robert Louis Stevenson</span>
+            </div>
+            <div class="book">
+                <img src="https://images.thegreatestbooks.org/2fxbel878jmjr7ruht6y6dvq7bqd" alt="Book 10">
+                <span class="book-title">The Wind in the Willows - Kenneth Grahame</span>
+            </div>
         </div>
     </div>
+
     <script>
         function searchBooks() {
             let input = document.querySelector('.search-bar').value.toLowerCase();
             let books = document.querySelectorAll('.book');
             books.forEach(book => {
                 let title = book.querySelector('.book-title').innerText.toLowerCase();
-                if (title.includes(input)) {
-                    book.style.display = "flex";
-                } else {
-                    book.style.display = "none";
-                }
+                book.style.display = title.includes(input) ? "flex" : "none";
             });
         }
     </script>
+
 </body>
 </html>
